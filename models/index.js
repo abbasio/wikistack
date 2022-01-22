@@ -38,11 +38,15 @@ const User = db.define('user', {
   email:{
     type: Sequelize.STRING,
     allowNull: false,
-    validate: {
-      isEmail: true
-    }
+    // validate: {
+    //   isEmail: true
+    // }
   }
 });
+
+//---------ASSOCIATIONS
+
+Page.belongsTo(User, { as: 'author' })
 
 
 //---------EXPORTS
