@@ -19,12 +19,7 @@ router.get('/', async(req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        const user = await User.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-
+        const user = await User.findByPk(req.params.id);
         const pages = await Page.findAll({
             where: {
                 authorId: req.params.id
