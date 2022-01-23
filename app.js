@@ -6,9 +6,11 @@ const layout = require('./views/layout');
 const { db } = require('./models');
 const wikiRouter = require('./routes/wiki');
 const usersRouter = require('./routes/users');
+const methodOverride = require('method-override');
 
 //---------MIDDLEWARE
 app.use(morgan('dev'));
+app.use(methodOverride('_method'));
 app.use(express.static('/public'));
 app.use(express.urlencoded({extended: true}));
 app.use('/wiki', wikiRouter);

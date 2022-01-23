@@ -7,6 +7,7 @@ const userList = require('../views/userList');
 const userPages = require('../views/userPages');
 
 //---------ROUTES
+
 router.get('/', async(req, res, next) => {
     try {
         const users = await User.findAll();
@@ -20,6 +21,9 @@ router.get('/', async(req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try {
         const user = await User.findByPk(req.params.id);
+        if (user === null){
+            res.status(404).send("User not found!");
+        }
         const pages = await Page.findAll({
             where: {
                 authorId: req.params.id

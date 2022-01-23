@@ -35,12 +35,12 @@ module.exports = () => layout(html`
     </div>
 
     <div class="form-group">
-      <label for="title" class="col-sm-2 control-label">Page Status:</label>
+      <label for="content" class="col-sm-2 control-label">Status</label>
       <div class="col-sm-10">
-        <input id="open" name="status" type="radio" value="open"/>
-        <label for = "open">Open</label>
-        <input id="closed" name="status" type="radio" value="closed"/>
-        <label for = "closed">Closed</label>
+        <select name="status">
+          <option value="open">open</option>
+          <option value="closed">closed</option>
+        </select>
       </div>
     </div>
 

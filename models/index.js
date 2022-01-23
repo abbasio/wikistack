@@ -22,7 +22,7 @@ const Page = db.define('page', {
     allowNull: false
   },
   status: {
-    type: Sequelize.ENUM('open', 'close')
+    type: Sequelize.ENUM('open', 'closed')
   }
 });
 
@@ -53,5 +53,6 @@ Page.belongsTo(User, { as: 'author' })
 module.exports = {
   db,
   Page,
-  User
+  User,
+  generateSlug
 };
